@@ -76,7 +76,7 @@ if st.button("Prever"):
     try:
         st.write(preprocessor.get_feature_names_out())
         st.write(input_df.columns)
-        prist.writent(X_treino.columns)
+        st.write(X_treino.columns)
         # Fazer a previsão
         st.write(input_df.shape) 
         st.write(X_treino.shape)
