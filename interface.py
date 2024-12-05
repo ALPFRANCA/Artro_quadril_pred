@@ -8,48 +8,19 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 
-# Carregar o modelo
+# Carregar o modelo e o pre-processador
 model = pickle.load(open("modelo_artroquadril.pkl", "rb"))
+preprocessor = pickle.load(open("preprocessor.pkl", "rb"))
 
-# Definindo as colunas numéricas e categóricas
-numerical_features = ['IDADE', 'TRACAO', 'RET_TRACAO', 'INT_TRACAO', 'PORTAIS', 'BLOQ_POS', 'ANCORAS']
-categorical_features = ['SEXO', 'LADO', 'INDICACAO', 'IFA']
-
-# Criando os pipelines de pré-processamento
-numerical_transformer = Pipeline(
-    steps=[
-        ("imputer", SimpleImputer(strategy="median")),
-        ("scaler", MinMaxScaler()),
-    ]
-)
-
-categorical_transformer = Pipeline(
-    steps=[
-        ("imputer", SimpleImputer(strategy="most_frequent")),
-        ('encoder', OneHotEncoder(handle_unknown='ignore', sparse_output=False)),
-    ]
-)
-
-# Criando o ColumnTransformer
-preprocessor = ColumnTransformer(
-    transformers=[
-        ("num", numerical_transformer, numerical_features),
-        ("cat", categorical_transformer, categorical_features),
-    ],
-    remainder='passthrough'
-)
-
-# Carregar os dados de treino (substitua pelo seu arquivo)
+# Carregar os dados de treino 
 df_treino = pd.read_excel("DB_Artro.xlsx")
 X_treino = df_treino.drop("COMPL", axis=1) 
-
-# Ajustar o pré-processador aos dados de treino
-preprocessor.fit(X_treino)
 
 # Função para fazer a previsão
 def predict(input_df, preprocessor):
     # Pré-processar os dados de entrada
     input_processed = preprocessor.transform(input_df)
+    st.write(input_processed)
 
     # Fazer a previsão
     prediction = model.predict(input_processed)
