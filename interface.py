@@ -10,16 +10,16 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 
 # Carregar o modelo e o pre-processador
 model = pickle.load(open("modelo_artroquadril.pkl", "rb"))
-preprocessor = pickle.load(open("preprocessor.pkl", "rb"))
+preprocessor5 = pickle.load(open("preprocessor.pkl", "rb"))
 
 # Carregar os dados de treino 
-df_treino = pd.read_excel("DB_Artro.xlsx")
-X_treino = df_treino.drop("COMPL", axis=1)
+df = pd.read_excel("DB_Artro.xlsx")
+X5 = df.drop(columns = 'COMPL')
 
 # Função para fazer a previsão
-def predict(input_df, preprocessor):
+def predict(input_df, preprocessor5):
     # Pré-processar os dados de entrada
-    input_processed = preprocessor.transform(input_df)
+    input_processed = preprocessor5.transform(input_df)
     st.write(input_processed)
 
     # Fazer a previsão
@@ -69,18 +69,18 @@ input_data = {
 input_df = pd.DataFrame([input_data])
 
 # Reordenar as colunas do input_df para corresponder a X_treino
-input_df = input_df[X_treino.columns]
+input_df = input_df[X5.columns]
 
 # Botão para prever
 if st.button("Prever"): 
     try:
-        st.write(preprocessor.get_feature_names_out())
+        st.write(preprocessor5.get_feature_names_out())
         st.write(input_df.columns)
-        st.write(X_treino.columns)
+        st.write(X5.columns)
         # Fazer a previsão
         st.write(input_df.shape) 
-        st.write(X_treino.shape)
-        prediction = predict(input_df, preprocessor)
+        st.write(X5.shape)
+        prediction = predict(input_df, preprocessor5)
 
         # Exibir o resultado
         if prediction[0] == 0:
