@@ -47,22 +47,16 @@ conversao_atq = np.nan
 ancoras = st.number_input("Quantidade de âncoras utilizadas durante o ato cirúrgico", min_value=0, max_value=5)
 tx_reop = np.nan 
 
-# Mapeamento das variáveis categóricas
-sexo_mapping = {"M": 0, "F": 1}
-lado_mapping = {"ESQ.": 0, "DIR.": 1}
-indicacao_mapping = {"Lesão labral": 0, "Lesão condral": 1, "Lesão mista (labral e condral)": 2}
-ifa_mapping = {"Tipo misto": 0, "Tipo CAM": 1, "Tipo PINCER": 2}
-
 # Criando um dicionário com os dados de entrada (sem listas e com mapeamento)
 input_data = {
-    "SEXO": sexo_mapping[sexo],
+    "SEXO": sexo, 
     "IDADE": idade,
-    "LADO": lado_mapping[lado],
+    "LADO": lado, 
     "TRACAO": tracao,
     "RET_TRACAO": ret_tracao,
     "INT_TRACAO": int_tracao,
-    "INDICACAO": indicacao_mapping[indicacao],
-    "IFA": ifa_mapping[ifa],
+    "INDICACAO": indicacao,
+    "IFA": ifa, 
     "PORTAIS": portais,
     "BLOQ_POS": bloq_pos,
     "TIPO": tipo,
