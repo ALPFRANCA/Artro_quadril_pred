@@ -69,14 +69,11 @@ input_data = {
 # Convertendo o imput para DataFrame
 input_df = pd.DataFrame([input_data])
 
-# Reordenar as colunas do input_df para corresponder a X_treino
-input_df = input_df[X5.columns]
-
 # Botão para prever
 if st.button("Prever"): 
     try:
-        input_processed = preprocessor5.transform(input_df)
-        input_processed = pd.DataFrame(input_processed, columns=all_feature_app)
+        input_processed_array = preprocessor5.transform(input_df)
+        input_processed = pd.DataFrame(input_processed_array, columns=all_feature_names)
 
         st.write(preprocessor5.get_feature_names_out())
         st.write(input_df.columns)
