@@ -73,7 +73,7 @@ input_df = pd.DataFrame([input_data])
 if st.button("Prever"): 
     try:
         input_processed_array = preprocessor5.transform(input_df)
-        input_processed = pd.DataFrame(input_processed_array, columns=all_feature_names)
+        input_processed = pd.DataFrame(input_processed_array, columns=all_feature_app)
 
         st.write(preprocessor5.get_feature_names_out())
         st.write(input_df.columns)
