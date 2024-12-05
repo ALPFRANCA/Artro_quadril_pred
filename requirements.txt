@@ -3,7 +3,6 @@ Flask
 matplotlib
 numpy
 pandas
-pickle
 scikeras
 scikit-learn
 seaborn
@@ -13,3 +12,4 @@ termcolor
 tensorflow
 tk
 xgboost
+imblearn
