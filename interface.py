@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 
 # Carregando o modelo e o pré-processamento
-model = pickle.load(open("/content/modelo_artroquadril.pkl", "rb")) 
+model = pickle.load(open("modelo_artroquadril.pkl", "rb")) 
 
 # Título da interface
 st.title("Predição de Complicações Cirúrgicas em Artroscopia de Quadril")
