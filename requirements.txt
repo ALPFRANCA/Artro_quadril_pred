@@ -1,0 +1,15 @@
+category-encoders
+Flask
+matplotlib
+numpy
+pandas
+pickle
+scikeras
+scikit-learn
+seaborn
+shap
+streamlit
+termcolor
+tensorflow
+tk
+xgboost
