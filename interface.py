@@ -11,7 +11,6 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 # Carregar o modelo e o pre-processador
 model = pickle.load(open("modelo_artroquadril.pkl", "rb"))
 preprocessor = pickle.load(open("preprocessor.pkl", "rb"))
-print(preprocessor.get_feature_names_out())
 
 # Carregar os dados de treino 
 df_treino = pd.read_excel("DB_Artro.xlsx")
@@ -75,8 +74,9 @@ input_df = input_df[X_treino.columns]
 # Botão para prever
 if st.button("Prever"): 
     try:
-        print(input_df.columns)
-        print(X_treino.columns)
+        st.write(preprocessor.get_feature_names_out())
+        st.write(input_df.columns)
+        prist.writent(X_treino.columns)
         # Fazer a previsão
         st.write(input_df.shape) 
         st.write(X_treino.shape)
