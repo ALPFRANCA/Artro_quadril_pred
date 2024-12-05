@@ -61,19 +61,19 @@ st.title("Predição de Complicações Cirúrgicas em Artroscopia de Quadril")
 # Criando os campos de entrada para as variáveis a serem analisadas
 
 sexo = st.selectbox("Sexo", ["M", "F"])
-idade = st.number_input("Idade", min_value=0, max_value=99, value=40)
-lado = st.selectbox("Lateralidade", ["Esq.", "Dir."])
-tracao = st.number_input("Tempo de tração durante o ato cirúrgico (em minutos)", min_value=0, value=300)
-ret_tracao = st.number_input("Quantidade de vezes que a tração foi retirada durante o ato cirúrgico", min_value=0, value=10)
-int_tracao = st.number_input("Tempo de retirada da tração durante o ato cirúrgico (em minutos)", min_value=0, value=150)
+idade = st.number_input("Idade", min_value=0, max_value=99)
+lado = st.selectbox("Lateralidade", ["ESQ.", "DIR."])
+tracao = st.number_input("Tempo de tração durante o ato cirúrgico (em minutos)", min_value=0, max_value=300)
+ret_tracao = st.number_input("Quantidade de vezes que a tração foi retirada durante o ato cirúrgico", min_value=0, max_value=10)
+int_tracao = st.number_input("Tempo de retirada da tração durante o ato cirúrgico (em minutos)", min_value=0, max_value=150)
 indicacao = st.selectbox("Indicação da abordagem cirúrgica", ["Lesão labral", "Lesão condral", "Lesão mista (labral e condral)"])
 ifa = st.selectbox("Tipo de Impacto Fêmoro-acetabular tratado", ["Tipo misto", "Tipo CAM", "Tipo PINCER"])
-portais = st.number_input("Número de portais artroscópicps utilizados durante o ato cirúrgico", min_value=2, value=5)
+portais = st.number_input("Número de portais artroscópicps utilizados durante o ato cirúrgico", min_value=2, max_value=5)
 bloq_pos = st.checkbox("Houve bloqueio anestésico no pós-operatório imediato?")
 bloq_pos = int(bloq_pos)
 tipo = np.nan  
 conversao_atq = np.nan 
-ancoras = st.number_input("Quantidade de âncoras utilizadas durante o ato cirúrgico", min_value=0, value=5)
+ancoras = st.number_input("Quantidade de âncoras utilizadas durante o ato cirúrgico", min_value=0, max_value=5)
 tx_reop = np.nan 
 
 # Mapeamento das variáveis categóricas
