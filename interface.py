@@ -11,7 +11,9 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 # Carregar o modelo e o pre-processador
 model = pickle.load(open("modelo_artroquadril.pkl", "rb"))
 preprocessor5 = pickle.load(open("preprocessor.pkl", "rb"))
-all_feature_app = pickle.load(open('feature_app.pkl', 'rb'))
+feature_info = pickle.load(open("feature_info.pkl", "rb"))
+feature_app = feature_info['names']
+feature_types = feature_info['types']
 
 # Carregar os dados de treino 
 df = pd.read_excel("DB_Artro.xlsx")
@@ -73,7 +75,9 @@ input_df = pd.DataFrame([input_data])
 if st.button("Prever"): 
     try:
         input_processed_array = preprocessor5.transform(input_df)
-        input_processed = pd.DataFrame(input_processed_array, columns=all_feature_app)
+        input_processed = pd.DataFrame(input_processed_array, columns=feature_app)
+        for col, dtype in zip(feature_app, feature_types):
+            input_processed[col] = input_processed[col].astype(dtype)
 
         st.write(preprocessor5.get_feature_names_out())
         st.write(input_df.columns)
