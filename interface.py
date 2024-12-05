@@ -21,7 +21,6 @@ X5 = df.drop(columns = 'COMPL')
 def predict(input_df, preprocessor5):
     # Pré-processar os dados de entrada
     input_processed = preprocessor5.transform(input_df)
-    st.write(input_processed)
 
     # Fazer a previsão
     prediction = model.predict(input_processed)
@@ -75,12 +74,6 @@ if st.button("Prever"):
         input_processed_array = preprocessor.transform(input_df)
         input_processed = pd.DataFrame(input_processed_array, columns=feature_names)
         # Fazer a previsão
-        st.write(input_df.shape) 
-        st.write(X5.shape)
-        st.write(X5.columns)
-        st.write(input_df.columns)
-        st.write(feature_names)
-        st.write(input_processed.columns)
         prediction = model.predict(input_df)
 
         # Exibir o resultado
