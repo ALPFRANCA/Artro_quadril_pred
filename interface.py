@@ -78,7 +78,7 @@ tx_reop = np.nan
 
 # Mapeamento das variáveis categóricas
 sexo_mapping = {"M": 0, "F": 1}
-lado_mapping = {"Esq.": 0, "Dir.": 1}
+lado_mapping = {"ESQ.": 0, "DIR.": 1}
 indicacao_mapping = {"Lesão labral": 0, "Lesão condral": 1, "Lesão mista (labral e condral)": 2}
 ifa_mapping = {"Tipo misto": 0, "Tipo CAM": 1, "Tipo PINCER": 2}
 
