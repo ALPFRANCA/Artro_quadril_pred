@@ -110,6 +110,8 @@ input_df = input_df[X_treino.columns]
 if st.button("Prever"):
     try:
         # Fazer a previsão
+        st.write(input_df.shape) 
+        st.write(X_treino.shape)
         prediction = predict(input_df, preprocessor)
 
         # Exibir o resultado
