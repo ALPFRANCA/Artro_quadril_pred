@@ -16,8 +16,6 @@ print(preprocessor.get_feature_names_out())
 # Carregar os dados de treino 
 df_treino = pd.read_excel("DB_Artro.xlsx")
 X_treino = df_treino.drop("COMPL", axis=1)
-print(input_df.columns)
-print(X_treino.columns)
 
 # Função para fazer a previsão
 def predict(input_df, preprocessor):
@@ -75,8 +73,10 @@ input_df = pd.DataFrame([input_data])
 input_df = input_df[X_treino.columns]
 
 # Botão para prever
-if st.button("Prever"):
+if st.button("Prever"): 
     try:
+        print(input_df.columns)
+        print(X_treino.columns)
         # Fazer a previsão
         st.write(input_df.shape) 
         st.write(X_treino.shape)
