@@ -13,3 +13,4 @@ tensorflow
 tk
 xgboost
 imblearn
+openpyxl
