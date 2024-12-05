@@ -77,15 +77,11 @@ if st.button("Prever"):
         # Fazer a previsão
         st.write(input_df.shape) 
         st.write(X5.shape)
-        prediction = model.predict(input_processed)
-
         st.write(X5.columns)
-
         st.write(input_df.columns)
-
         st.write(feature_names)
-
         st.write(input_processed.columns)
+        prediction = model.predict(input_processed)
 
         # Exibir o resultado
         if prediction[0] == 0:
