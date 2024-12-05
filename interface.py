@@ -81,7 +81,7 @@ if st.button("Prever"):
         st.write(input_df.columns)
         st.write(feature_names)
         st.write(input_processed.columns)
-        prediction = model.predict(input_processed)
+        prediction = model.predict(input_df)
 
         # Exibir o resultado
         if prediction[0] == 0:
